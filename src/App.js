@@ -16,7 +16,9 @@ const todos = [
 
 function App() {
   return (
-    <TodoList items={todos} />
+    <div className="App">
+      <TodoList items={todos} />      
+    </div>
   );
 }
 

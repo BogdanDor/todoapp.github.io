@@ -1,0 +1,11 @@
+.TodoList {
+  width: 320px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.TodoList__item {
+  border: solid 1px #565756;
+  border-bottom: none;
+}
+.TodoList__item:last-child { border-bottom: solid 1px #565756; }
