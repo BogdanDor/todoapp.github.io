@@ -9,7 +9,7 @@ class App extends React.Component {
     super();
     this.state = { 
       todos: [],
-      lastId: 6
+      lastId: 0
     }
 
     this.createTodo = this.createTodo.bind(this);
