@@ -17,12 +17,12 @@ class App extends React.Component {
   }
 
   createTodo(title) {
-    let newId = this.state.lastId;
-    newId++;
-    this.setState({ 
-      todos: [{ id: newId, title: title }, ...this.state.todos],
-      lastId: newId
-    });
+    this.setState((prevState => ({
+      todos: [
+        {id: prevState.lastId, title: title}, ...prevState.todos
+      ],
+      lastId: prevState.lastId + 1
+    })));
   }
 
   deleteTodo(id) {
