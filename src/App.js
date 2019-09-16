@@ -13,6 +13,7 @@ class App extends React.Component {
     }
 
     this.createTodo = this.createTodo.bind(this);
+    this.deleteTodo = this.deleteTodo.bind(this);
   }
 
   createTodo(title) {
@@ -24,12 +25,18 @@ class App extends React.Component {
     });
   }
 
+  deleteTodo(id) {
+    console.log('delete todo');
+    const newTodos = this.state.todos.filter(item => item.id !== id);
+    this.setState({ todos: newTodos });
+  }
+
   render() {
     return (
       <div className="App">
         <div className="App__inner">
           <TodoInput onCreateTodo={this.createTodo} />
-          <TodoList items={this.state.todos} />
+          <TodoList items={this.state.todos} onDeleteTodo={this.deleteTodo} />
         </div>      
       </div>
     );  

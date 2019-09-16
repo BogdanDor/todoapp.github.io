@@ -13,6 +13,7 @@ function TodoList(props) {
           <TodoItem 
             id={todo.id}
             title={todo.title}
+            onClick={props.onDeleteTodo}
           />
         </li>
         )}
