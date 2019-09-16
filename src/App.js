@@ -27,8 +27,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <TodoInput onCreateTodo={this.createTodo} />
-        <TodoList items={this.state.todos} />      
+        <div className="App__inner">
+          <TodoInput onCreateTodo={this.createTodo} />
+          <TodoList items={this.state.todos} />
+        </div>      
       </div>
     );  
   }
