@@ -1,4 +1,5 @@
 .TodoInput {
+  position: relative;
 }
 .TodoInput__item {
   box-sizing: border-box;

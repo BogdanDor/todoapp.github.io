@@ -1,23 +1,51 @@
 import React from 'react';
 import './TodoInput.css';
+import InputErrors from './InputErrors.js';
 
 class TodoInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { 
+      value: '',
+      isValid: true,
+      animateIsRun: false
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.runAnimate = this.runAnimate.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    if (event.target.value == ' ') {
+      return;
+    } 
+    this.setState({ 
+      value: event.target.value,
+      isValid: true,
+      animateIsActive: false
+    });
   }
 
   handleSubmit(event) {
-    this.props.onCreateTodo(this.state.value);
-    this.setState({ value: '' });
+    if (this.state.value !== '') {
+      this.props.onCreateTodo(this.state.value);
+      this.setState({ 
+        value: '',
+        isValid: true
+      });  
+    } else {
+      this.setState({
+        isValid: false,
+        animateIsRun: false
+      });
+      setTimeout(this.runAnimate, 0);
+    }
     event.preventDefault();
+  }
+
+  runAnimate() {
+    this.setState({animateIsRun: true});
   }
   
   render() {
@@ -26,6 +54,7 @@ class TodoInput extends React.Component {
         onSubmit={this.handleSubmit}
         className="TodoInput"
       >
+        <InputErrors valid={this.state.isValid} animateIsRun={this.state.animateIsRun} />
         <input 
           type="text" 
           placeholder="enter new todo"
