@@ -3,16 +3,19 @@
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: 8px;
+  padding: 0;
+  padding-right: 8px;
 }
 .TodoItem__title {
   flex-grow: 1;
   margin: 0;
-  padding: 0;
+  padding: 8px;
+  padding-right: 0;
   font-size: 16px;
   line-height: 24px;
   overflow-x: hidden;
   text-overflow: ellipsis;
+  border: 0;
 }
 .TodoItem__delete {
   margin: 0;
