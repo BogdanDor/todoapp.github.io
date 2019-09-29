@@ -13,6 +13,7 @@ class App extends React.Component {
     }
 
     this.createTodo = this.createTodo.bind(this);
+    this.updateTodo = this.updateTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
   }
 
@@ -23,6 +24,16 @@ class App extends React.Component {
       ],
       lastId: prevState.lastId + 1
     })));
+  }
+
+  updateTodo(id, title) {
+    const newTodos = this.state.todos.map(item => {
+      if (item.id === id) {
+        return {id: id, title: title}
+      }
+      return item;
+    });
+    this.setState({todos: newTodos});
   }
 
   deleteTodo(id) {
@@ -36,7 +47,11 @@ class App extends React.Component {
       <div className="App">
         <div className="App__inner">
           <TodoInput onCreateTodo={this.createTodo} />
-          <TodoList items={this.state.todos} onDeleteTodo={this.deleteTodo} />
+          <TodoList 
+            items={this.state.todos} 
+            onUpdateTodo={this.updateTodo}
+            onDeleteTodo={this.deleteTodo} 
+          />
         </div>      
       </div>
     );  

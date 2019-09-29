@@ -12,8 +12,9 @@ function TodoList(props) {
         >
           <TodoItem 
             id={todo.id}
-            title={todo.title}
-            onClick={props.onDeleteTodo}
+            initTitle={todo.title}
+            onButtonClick={props.onDeleteTodo}
+            onTitleChange={props.onUpdateTodo}
           />
         </li>
         )}
