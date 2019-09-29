@@ -45,6 +45,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <header className="App__header">Todo App</header>
         <div className="App__inner">
           <TodoInput onCreateTodo={this.createTodo} />
           <TodoList 
@@ -53,6 +54,7 @@ class App extends React.Component {
             onDeleteTodo={this.deleteTodo} 
           />
         </div>      
+        <footer className="App__footer">Created by Bogdan Dor</footer>
       </div>
     );  
   }
