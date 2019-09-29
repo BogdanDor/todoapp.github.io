@@ -35,7 +35,7 @@ class TodoItem extends React.Component {
     if (event.key === 'Enter') {
       event.preventDefault();
       this.props.onTitleChange(this.props.id, this.state.title);
-      setTimeout(event.target.blur, 0);
+      setTimeout(this.blur, 0);
     }
   }
   
